@@ -1,0 +1,48 @@
+<div clas="container">
+
+    <div class="row eps-sentiment mt-3 mb-3">
+    
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">{{Data.company.name}}</th>
+              <th scope="col">MSPR</th>
+              <th scope="col">CHANGE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Total</th>
+              <td>{{roundToTwoDecimalPlaces(totalMspr)}}</td>
+              <td>{{roundToTwoDecimalPlaces(totalChange)}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Positive</th>
+              <td>{{roundToTwoDecimalPlaces(positiveMspr)}}</td>
+              <td>{{roundToTwoDecimalPlaces(positiveChange)}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Negative</th>
+              <td>{{roundToTwoDecimalPlaces(negativeMspr)}}</td>
+              <td>{{roundToTwoDecimalPlaces(negativeChange)}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <app-rectrend></app-rectrend>
+      </div>
+      <div class="col-md-6 mb-3">
+        <app-esp-earning></app-esp-earning>
+      </div>
+    </div>
+    </div>
+    
+    
+    
+    
+    

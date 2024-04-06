@@ -1,0 +1,40 @@
+<app-alert [message]="messagewatch" [type]="actionwatch" *ngIf="watchaction"></app-alert>
+<ngbd-alert-selfclosing [message]="buymessage" [type]="buyAction" *ngIf="isBuyDone"></ngbd-alert-selfclosing>
+<ngbd-alert-selfclosing [message]="sellmessage" [type]="sellAction" *ngIf="isSellDone"></ngbd-alert-selfclosing>
+<div class="container text-center">
+    <div class="row justify-content-center gx-0">
+      <div class="col-lg-3 col-4">
+        <h2  style="display: inline-block;" class="ticker">{{Data.company.ticker}}</h2>
+        <button (click)="toggleStar(Data.company.ticker)" class="star"  [ngClass]="{ 'starred': isStarred, 'unstarred': !isStarred }">
+          <i [ngClass]="iconClass"></i>
+        </button>
+        <h3 class="name">{{Data.company.name}}</h3>
+        <p clas="exchange">{{Data.company.exchange}}</p>
+        <div style="gap: 10px;" class="d-flex justify-content-center">
+        <button (click)="open(Data.company.ticker , 'Buy')"  type="button" class="btn btn-success buy">Buy</button>
+        <button *ngIf="isSellAvail" (click)="open(Data.company.ticker , 'Sell')" type="button" class="btn btn-danger sell">Sell</button>
+      </div>
+      </div>
+      <div class="col-lg-3 col-3"> 
+        <img class="img-fluid logo-lg d-none d-lg-block" src="{{Data.company.logo}}">
+        <img class="img-fluid logo-sm d-lg-none" src="{{Data.company.logo}}">
+      </div>
+      <div class="col-lg-3 col-5">
+        <h1 class="price" [ngStyle]="{'color':stockData.stock.d>0?'green':'red'}" >{{stockData.stock.c.toFixed(2)}}</h1>
+        <h2 class="change" [ngStyle]="{'color':stockData.stock.d>0?'green':'red'}" >
+          <div style="display: inline;" *ngIf="stockData.stock.d>0;else other_content">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+              <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+            </svg>
+        </div>
+        <ng-template #other_content><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+          <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+        </svg></ng-template>
+          <span>{{stockData.stock.d.toFixed(2)}} </span><span>&#40;{{stockData.stock.dp.toFixed(2)}}%&#41;</span></h2>
+        <p class="time">{{currentTime}}</p>
+      </div>
+    </div>
+  </div>
+  <p class="market mb-3 mt-4 " [ngStyle]="{'color':marketStatus=='is Open'?'green':'red'}"> Market {{marketStatus}}</p>
+
+

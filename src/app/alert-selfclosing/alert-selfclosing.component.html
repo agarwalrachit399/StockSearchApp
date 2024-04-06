@@ -1,0 +1,9 @@
+@if (!staticAlertClosed) {
+	<div class="m-auto mb-2 col-lg-8 col-11">
+	<ngb-alert class="custom-alert" [ngStyle]="{ 'background-color': type == 'Buy' ? '#d8eae2' : '#f9dcdf', 'color': 'black','text-align':'center','border':'none' }" #staticAlert (closed)="staticAlertClosed = true">{{message}}</ngb-alert>
+</div>	
+}
+
+
+
+

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md">
+          <div *ngFor="let news_ of news.slice(0, 10)">
+              <div (click)="open(news_.id)" class="container text-center news">
+                  <div class="row align-items-center">
+                      <div class="col-lg-3 col-md-12 mb-3 mb-lg-0">
+                          <img class="img-fluid newsImage-lg d-none d-lg-block" src="{{news_.image}}">
+                          <img class="img-fluid newsImage-sm d-lg-none" src="{{news_.image}}">
+                      </div>
+                      <div class="col-lg-9 col-md-12 headline">
+                          <p>{{news_.headline}}</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-md">
+          <div *ngFor="let news_ of news.slice(10, 20)">
+              <div (click)="open(news_.id)" class="container text-center news">
+                  <div class="row align-items-center">
+                      <div class="col-lg-3 col-md-12 mb-3 mb-lg-0">
+                        <img class="img-fluid newsImage-lg d-none d-lg-block" src="{{news_.image}}">
+                        <img class="img-fluid newsImage-sm d-lg-none" src="{{news_.image}}">
+                      </div>
+                      <div class="col-lg-9 col-md-12 headline">
+                          <p>{{news_.headline}}</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

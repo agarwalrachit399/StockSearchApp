@@ -1,0 +1,11 @@
+.eps-sentiment {
+    width: 70%;
+    margin: auto;
+}
+
+th, tr {
+    text-align: center;
+}
+th {
+    border-bottom-color: rgb(222, 226, 230) !important;
+}

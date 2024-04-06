@@ -1,0 +1,49 @@
+
+h2 {
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+.card-header h1,h3 {
+    margin-bottom: 0;
+}
+
+.d-flex {
+    gap: 0.4rem
+}
+
+button {
+    border-width: 1px;
+    color: rgb(229, 229, 229);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.buy-btn {
+    background-color: #0c6efd;
+    margin-right: 10px;
+}
+
+.sell-btn {
+    background-color: #dc3545;
+}
+.balance {
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.alert {
+    background-color: #fef1c9;
+    text-align: center;
+    margin: auto;
+    padding: 10px
+}
+
+.spin {
+    margin: auto;
+    margin-top: 5rem;
+}
+
+.alert-top {
+    margin-top: 20px;
+}

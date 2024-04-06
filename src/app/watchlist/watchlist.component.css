@@ -1,0 +1,45 @@
+.stock-card {
+    border: 1px solid #e1dddd;
+    padding: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  border-radius: 5px;
+  margin: auto;
+}
+
+.stock-card h1,h2 {
+    margin-bottom: 0;
+}
+
+.stock-card h2 {
+    font-weight: 400;
+}
+
+.alert {
+    background-color: #fef1c9;
+    text-align: center;
+    margin: auto;
+    padding: 10px
+}
+
+.clear {
+    padding: 0;
+
+    background-color: white;
+    border: none;
+}
+
+
+.spin {
+    
+    margin: auto;
+    margin-top: 5rem;
+}
+
+.card-body:hover {
+cursor: pointer;
+}
+
+.clear:hover{
+    border: 1px solid #2b80fd;
+}

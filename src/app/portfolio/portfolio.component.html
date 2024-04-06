@@ -1,0 +1,117 @@
+<div class="mt-4">
+<ngbd-alert-selfclosing [message]="buymessage" [type]="buyaction" *ngIf="isBuyDone"></ngbd-alert-selfclosing>
+<ngbd-alert-selfclosing [message]="sellmessage" [type]="sellaction" *ngIf="isSellDone"></ngbd-alert-selfclosing>
+</div>
+
+<h1 class="mt-4 col-lg-8 m-auto col-11">My Portfolio</h1>
+<mat-spinner class='spin' diameter="50" *ngIf="isLoadingData"></mat-spinner>
+<div *ngIf="!isLoadingData">
+<h1 class="balance mt-2 col-lg-8 col-11 m-auto">Money in Wallet: ${{Balance.toFixed(2)}}</h1>
+<div *ngIf="Empty else ShowPort">
+  <p class="alert col-lg-8 col-11 m-auto mt-4">Currently you don't have any stock.</p>
+</div>
+<ng-template #ShowPort>
+<div class="card col-lg-8 col-11 mt-3 m-auto" *ngFor="let portfolio of Data">
+<div class="card-header d-flex">
+    <h1> {{portfolio._id}}</h1>
+    <h3 class="align-self-end"> {{portfolio.name}}</h3>
+  </div>
+  <div class="card-body">
+   
+   
+    <div class="row">
+
+
+      <div class="col-lg-6">
+
+        <div class="row">
+        <div class="col-lg-6 col-8">
+          <h2>Quantity:</h2>
+        </div>
+        <div class="col-lg-6 col-4">
+          <h2>{{portfolio.quantity}}</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-8">
+          <h2>Avg. Cost / Share:</h2>
+        </div>
+        <div class="col-lg-6 col-4">
+          <h2>{{portfolio.avg_cost.toFixed(2)}}</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-8">
+          <h2>Total Cost:</h2>
+        </div>
+        <div class="col-lg-6 col-4">
+            <h2>{{portfolio.total_cost.toFixed(2)}}</h2>
+        </div>
+      </div>
+
+      </div>
+
+
+        <div class="col-lg-6">
+
+          <div class="row">
+        <div class="col-lg-6 col-8">
+          <h2>Change:</h2>
+        </div>
+        <div class="col-lg-6 col-4">
+            <div  [ngStyle]="{ color: parseFloat(portfolio.change.toFixed(2)) > 0 ? 'green' : ( parseFloat(portfolio.change.toFixed(2)) < 0 ? 'red' : 'black') }" >
+              <div style="display: inline;" *ngIf="parseFloat(portfolio.change.toFixed(2)) > 0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                    <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                </svg>
+            </div>
+            <div style="display: inline;" *ngIf="parseFloat(portfolio.change.toFixed(2)) < 0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                </svg>
+            </div>
+              <span><h2 style="display: inline;">{{portfolio.change.toFixed(2)}}</h2></span></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 col-8">
+            <h2>Current Price:</h2>
+          </div>
+          <div class="col-lg-6 col-4">
+              <div [ngStyle]="{ color:  parseFloat(portfolio.change.toFixed(2)) > 0 ? 'green' : ( parseFloat(portfolio.change.toFixed(2)) < 0 ? 'red' : 'black') }">
+                <span><h2>{{portfolio.price.toFixed(2)}}</h2></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6 col-8">
+              <h2>Market Value:</h2>
+            </div>
+            <div class="col-lg-6 col-4">
+                <div [ngStyle]="{ color:  parseFloat(portfolio.change.toFixed(2))> 0 ? 'green' : ( parseFloat(portfolio.change.toFixed(2)) < 0 ? 'red' : 'black') }">
+                  <span><h2>{{portfolio.market_val.toFixed(2)}}</h2></span></div>
+              </div>
+            </div>
+
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+
+  <div class="card-footer">
+    <button (click)="open(portfolio._id, portfolio.name,portfolio.price,portfolio.avg_cost,portfolio.change,portfolio.market_val
+    ,portfolio.quantity,portfolio.total_cost, 'Buy')" class= "buy-btn" >Buy</button>
+    <button (click)="open(portfolio._id, portfolio.name,portfolio.price,portfolio.avg_cost,portfolio.change,portfolio.market_val
+    ,portfolio.quantity,portfolio.total_cost, 'Sell')"  class= "sell-btn" >Sell</button>
+  </div>
+</div>
+</ng-template>
+</div>

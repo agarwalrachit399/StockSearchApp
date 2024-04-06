@@ -1,0 +1,42 @@
+.form-comp{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.searchbar{
+    background-color: white;
+    border: solid 3px #2728b3;
+    border-radius: 20px;
+    width: 75%;
+    margin: auto;
+    padding:5px 
+}
+
+input {
+    border: none;
+    width: 80%;
+}
+
+input:focus{
+    outline: none;
+}
+
+.no_tick {
+    background-color: #f8d4d4;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.no_tick p {
+margin-bottom: 0;
+}
+
+mat-spinner {
+    margin: auto;
+}
+
+svg:hover {
+    cursor: pointer;
+}

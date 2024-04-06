@@ -1,0 +1,42 @@
+.modal-footer {
+    justify-content: space-between;
+}
+p {
+    margin-bottom: 0px;
+}
+
+input{
+    box-sizing: border-box;
+    width: 70%;
+    border-radius: 7px;
+    border-width: 1px;
+}
+
+.action-btn {
+    margin: 0;
+    padding: 8px 15px;
+    background-color: darkgreen;
+    color: white;
+    border-radius: 8px;
+    border-width: 1px;
+}
+
+.custom-btn {
+    background-color: white;
+    border: none;
+    /* border-bottom: solid #2b80fd 1px; */
+}
+
+.low-balance {
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.horizontal {
+    width: 16px;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-color: #1772fb;
+}

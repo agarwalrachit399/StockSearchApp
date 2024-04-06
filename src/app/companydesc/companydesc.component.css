@@ -1,0 +1,63 @@
+
+.ticker {
+    margin-bottom: 0;
+    font-size: 1.7em;
+}
+.name {
+    margin-bottom: 0;
+    color: gray;
+    /* margin-left: 5px; */
+}
+
+/* .exchange {
+    margin-bottom: 8px;
+} */
+
+.buy {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    /* margin-right: 10px; */
+}
+
+.sell {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.logo-lg {
+    width: 80px;
+    margin: auto;
+}
+.logo-sm {
+    width: 50px;
+    margin: auto;
+}
+
+.market {
+    text-align: center;
+    font-weight: bold;
+    /* margin-top: 80px; */
+}
+
+.price {
+    font-size: 1.75em;
+    margin-bottom: 0;
+}
+
+.change {
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.time {
+    margin-bottom: 0;
+}
+
+.star {
+    background-color: white;
+    border: none;
+}
+
+.icon-clicked {
+    color: #ffdd03
+}

@@ -1,0 +1,53 @@
+
+.modal-header {
+    margin-left: 0;
+    margin-right: 0;
+} 
+h1,h2,p {
+    margin-bottom: 0px;
+}
+
+.custom-btn {
+    background-color: white;
+    border: none;
+}
+
+.modal-header .col {
+    padding-left: 0;
+}
+
+.share {
+    margin-top: 30px;
+    border: solid 1px rgb(164, 162, 162);
+    border-radius: 6px;
+    padding: 10px;
+}
+.share p {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-title {
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.date {
+    font-weight: 500;
+    color: rgb(157, 156, 156);
+}
+
+.redirect-url {
+    color: #999
+}
+.headline {
+    font-weight: 400;
+}
+
+.horizontal {
+    width: 16px;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-color: #2b80fd
+}

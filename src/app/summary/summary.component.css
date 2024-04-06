@@ -1,0 +1,11 @@
+
+
+.quote p {
+    margin-bottom: 0;
+}
+.peerlink {
+    border: none;
+    color: rgb(13, 110, 253);
+    text-decoration: underline;
+    background-color: white;
+}

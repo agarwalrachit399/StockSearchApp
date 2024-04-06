@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="row mt-4">
+                <div class="col-lg-6 text-center quote">
+                <p><strong>High Price: </strong>{{stockData.stock.h.toFixed(2)}}</p>
+                <p><strong>Low Price: </strong>{{stockData.stock.l.toFixed(2)}}</p>
+                <p><strong>Open Price: </strong>{{stockData.stock.o.toFixed(2)}}</p>
+                <p><strong>Prev. Close: </strong>{{stockData.stock.pc.toFixed(2)}}</p>
+            </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col text-center">
+                <h2 style="text-decoration: underline;">About the company</h2>
+                <p><strong>IPO Start Date: </strong>{{Data.company.ipo}}</p>
+                <p><strong>Industry: </strong>{{Data.company.finnhubIndustry}}</p>
+                <p><strong>Webpage: </strong><span><a target="_blank" href = "{{Data.company.weburl}}">{{Data.company.weburl}}</a></span></p>
+                <p><strong>Company peers: </strong></p>
+                <div style="display: inline;" *ngFor="let peer_ of peers" >
+                    <button class="peerlink" (click)="submitForm(peer_)">{{peer_}}, </button>
+                 </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 pt-2 pb-4">
+            <app-hourlyprice></app-hourlyprice>
+        </div>
+    </div>
+</div>
+
+
