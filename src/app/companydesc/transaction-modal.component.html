@@ -20,6 +20,6 @@
 </div>
 <div class="modal-footer">
     <p>Total : {{TotalPrice.toFixed(2)}}</p>
-    <button [disabled]="current_input <= 0 || balance<TotalPrice" [style.background-color]="current_input <= 0 || balance<TotalPrice? '#74ba9c' : '#1a905d'" class="action-btn" (click)="buystock(ticker); activeModal.dismiss()"> {{action}}</button>
+    <button [disabled]="new_quantity < 0 || balance<TotalPrice || current_input<=0" [style.background-color]="new_quantity < 0 || current_input<=0 || balance<TotalPrice? '#74ba9c' : '#1a905d'" class="action-btn" (click)="buystock(ticker); activeModal.dismiss()"> {{action}}</button>
 </div>
 

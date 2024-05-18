@@ -123,9 +123,26 @@ export class SearchformComponent {
     this.IsAvail.updateRefresh(auto)
     forkJoin([
       this.QuoteService.getRefresh('/quote', { name: auto}),
-      this.companyService.getCompany('/company', { name: auto })
+      this.companyService.getCompany('/company', { name: auto }),
+      this.WatchListService.getWatchListOne(`/watchlist/${auto}`),
+      this.PortfolioService.getPortfolio(`/portfolio/${auto}`)
     ]).pipe(
-      tap(([stock, company]) => {
+      tap(([stock, company, watch, port]) => {
+        console.log("Debugging is back",watch)
+        if(watch!=null)
+          {
+            this.IsAvail.updateIsStarAvail(true)
+          }
+          else{
+            this.IsAvail.updateIsStarAvail(false)
+          }
+         if(port!=null)
+          {
+            this.IsAvail.updateIsAvail(true)
+          }
+          else{
+            this.IsAvail.updateIsAvail(false)
+          } 
         this.QuoteShare.sendData(stock); 
         this.SharingService.sendData(company); 
         this.isRefreshEnabled=true

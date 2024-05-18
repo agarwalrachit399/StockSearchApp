@@ -216,6 +216,7 @@ app.get('/portfolio/money', async (req, res) => {
   try {
     const collection = database.collection('Portfolio'); 
     const data = await collection.findOne({ _id: 'money' })
+    print(data)
     res.json(data);
   } catch (error) {
     console.error('Error fetching data:', error);

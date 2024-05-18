@@ -11,6 +11,7 @@ import { IsAvailService } from '../services/is-avail.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { QuoteshareService } from '../services/quoteshare.service';
 import { RefreshService } from '../services/refresh.service';
+import { PortfolioService } from '../services/portfolio.service';
 
 @Component({
   selector: 'app-watchlist',
@@ -31,6 +32,7 @@ export class WatchlistComponent implements OnInit {
     private IsAvail : IsAvailService,
     private router: Router,
     private StockShare : QuoteshareService,
+    private PortfolioService : PortfolioService,
     private QuoteService : RefreshService){
    this.watchlistshare.data$.subscribe(data=>{
       this.Data=data
@@ -116,9 +118,25 @@ navigateTo(ticker:string){
     this.name = ticker
     forkJoin([
       this.QuoteService.getRefresh('/quote', { name: ticker }),
-      this.companyService.getCompany('/company', { name: ticker })
+      this.companyService.getCompany('/company', { name: ticker }),
+      this.WatchListService.getWatchListOne(`/watchlist/${ticker}`),
+      this.PortfolioService.getPortfolio(`/portfolio/${ticker}`)
     ]).pipe(
-      tap(([stock, company]) => {
+      tap(([stock, company, watch, port]) => {
+        if(watch!=null)
+          {
+            this.IsAvail.updateIsStarAvail(true)
+          }
+          else{
+            this.IsAvail.updateIsStarAvail(false)
+          }
+         if(port!=null)
+          {
+            this.IsAvail.updateIsAvail(true)
+          }
+          else{
+            this.IsAvail.updateIsAvail(false)
+          } 
         this.StockShare.sendData(stock); 
         this.SharingService.sendData(company); 
         this.IsAvail.updateRefresh(ticker)

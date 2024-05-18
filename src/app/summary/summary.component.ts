@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Company, CompanyDesc, HistoryDesc, StockQuote } from '../../types';
+import { Company, CompanyDesc, HistoryDesc, Portfolio, StockQuote } from '../../types';
 import { Subscription, forkJoin, tap } from 'rxjs';
 import { SharingServiceService } from '../services/sharing-service.service';
 import { HourlypriceComponent } from '../hourlyprice/hourlyprice.component';
@@ -9,7 +9,8 @@ import { Router, RouterLink } from '@angular/router';
 import { QuoteshareService } from '../services/quoteshare.service';
 import { RefreshService } from '../services/refresh.service';
 import { IsAvailService } from '../services/is-avail.service';
-
+import { WatchlistService } from '../services/watchlist.service';
+import { PortfolioService } from '../services/portfolio.service';
 @Component({
   selector: 'app-summary',
   standalone: true,
@@ -28,6 +29,8 @@ export class SummaryComponent {
   private companyService: CompanyService,
   private StockShare : QuoteshareService,
   private QuoteService : RefreshService,
+  private WatchListService : WatchlistService,
+  private PortfolioService : PortfolioService,
   private router: Router,
   private IsAvial : IsAvailService) {
   this.subscription = this.StockShare.data$.subscribe((data=> {
@@ -47,9 +50,25 @@ export class SummaryComponent {
     // Fetch data from QuoteService and CompanyService
     forkJoin([
       this.QuoteService.getRefresh('/quote', { name: name }),
-      this.companyService.getCompany('/company', { name: name })
+      this.companyService.getCompany('/company', { name: name }),
+      this.WatchListService.getWatchListOne(`/watchlist/${name}`),
+      this.PortfolioService.getPortfolio(`/portfolio/${name}`)
     ]).pipe(
-      tap(([stock, company]) => {
+      tap(([stock, company,watch, port]) => {
+        if(watch!=null)
+          {
+            this.IsAvial.updateIsStarAvail(true)
+          }
+          else{
+            this.IsAvial.updateIsStarAvail(false)
+          }
+          if(port!=null)
+            {
+              this.IsAvial.updateIsAvail(true)
+            }
+            else{
+              this.IsAvial.updateIsAvail(false)
+            } 
         this.StockShare.sendData(stock); // Send stock data
         this.SharingService.sendData(company); // Send company data
         this.IsAvial.updateRefresh(name)

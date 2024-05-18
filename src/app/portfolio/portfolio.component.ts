@@ -63,6 +63,10 @@ export class NewsModalComponent {
     
   }
 
+  isInteger(value: any){
+    return Number.isInteger(value);
+  }
+
    buystock(ticker:string){
 
     // this.fetchnewprice(ticker)
