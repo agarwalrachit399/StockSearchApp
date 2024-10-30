@@ -48,8 +48,8 @@ These instructions will help you set up and run the project locally.
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/username/stock-explorer.git
-   cd stock-explorer
+   git clone https://github.com/agarwalrachit399/StockSearchApp.git
+   cd StockSearchApp
 2. **Install Dependencies**:
    ```bash
    npm install
