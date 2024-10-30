@@ -309,8 +309,4 @@ open(ticker: string , action: string){
 
   
 }
-
-
-
-
 }

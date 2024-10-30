@@ -32,8 +32,6 @@ const client = new MongoClient(uri);
 client.connect()
 database= client.db("WebTech_HW3")
 
-console.log(finhub_api)
-
 //Get current Market Status
 async function GetStatusDays(){
  const stockQuote = await axios.get(`https://finnhub.io/api/v1/quote?symbol=AAPL&token=${finhub_api}`);

@@ -164,7 +164,10 @@ export class PortfolioComponent {
   }
 
   ngOnInit() {
+    
       this.BalanceShare.data$.subscribe((data)=> {
+        console.log("Debugging",data)
+        
         this.Balance = data.balance
       })
       this.loadData();
